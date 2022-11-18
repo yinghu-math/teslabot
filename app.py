@@ -2,7 +2,7 @@ from transformers import pipeline
 from fastapi import FastAPI
 from mangum import Mangum
 
-from pydantic import BaseModel
+from pydantic import BaseModel ## Enforce the type, getting the benefit of static typing
 from typing import List
 
 class BodyModel(BaseModel):
@@ -28,4 +28,6 @@ def root():
     return {"message": "Ok"}
 
 
-handler = Mangum(app=app)
+handler = Mangum(app=app)  
+
+# It is a confiurable wrapper that allows any ASGI application to run in an AWS lambda deployment. 
